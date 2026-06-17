@@ -17,6 +17,10 @@ import pickle
 import os
 import requests
 
+if not os.path.exists("model/similarity.pkl"):
+    from recommendation_engine import build_model
+    build_model("tmdb_5000_movies.csv", "tmdb_5000_credits.csv", "model")
+
 # ─────────────────────────────────────────────────────────────────────────────
 # LOAD MODEL ARTIFACTS
 # ─────────────────────────────────────────────────────────────────────────────
