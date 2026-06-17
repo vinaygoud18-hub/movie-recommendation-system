@@ -92,5 +92,12 @@ The similarity matrix is a 4806 × 4806 array which comes out to ~176MB — over
 
 ---
 
-Built by [Vinay Goud](https://github.com/vinaygoud18-hub) — 3rd year B.Tech CSE (Data Science)
+👨‍💻 Author
 
+Vinay Goud
+
+B.Tech CSE (Data Science)
+
+GitHub: https://github.com/vinaygoud18-hub
+
+LinkedIn: https://www.linkedin.com/in/vinaygoud-vintapuram/
