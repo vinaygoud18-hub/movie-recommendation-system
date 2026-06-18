@@ -25,26 +25,15 @@ if not os.path.exists("model/similarity.pkl"):
 # LOAD MODEL ARTIFACTS
 # ─────────────────────────────────────────────────────────────────────────────
 
-@st.cache_resource   # cache so we don't reload on every interaction
-def load_model(model_dir="model"):
-    """Load the pre-computed movie DataFrame and similarity matrix."""
-    movies_path     = os.path.join(model_dir, "movies.pkl")
-    similarity_path = os.path.join(model_dir, "similarity.pkl")
-
-    if not os.path.exists(movies_path) or not os.path.exists(similarity_path):
-        st.error(
-            "❌ Model files not found! "
-            "Please run `python recommendation_engine.py` first to build the model."
-        )
-        st.stop()
-
-    with open(movies_path, "rb") as f:
-        movies = pickle.load(f)
-    with open(similarity_path, "rb") as f:
-        similarity = pickle.load(f)
-
+@st.cache_resource
+def load_model():
+    from recommendation_engine import build_model
+    movies, similarity = build_model(
+        "tmdb_5000_movies.csv",
+        "tmdb_5000_credits.csv",
+        "model"
+    )
     return movies, similarity
-
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FETCH MOVIE POSTER FROM TMDB API (Optional Enhancement)
